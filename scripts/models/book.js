@@ -2,12 +2,19 @@
 
 var app = {};
 
-var __API_URL__ = 'https://api-v1-books';
+var __API_URL__ = 'https://localhost:3000';
 
 // create a constructor function wrapped in IIFE
 (function (module) {
+
+  function errorCallback(err) {
+    console.error(err);
+    module.errorView.initErrorPage(err);
+  }
+
+  Book.all = [];
+
   function Book (bookDataObj) {
-    Book.all = [];
     this.book_id = book_id,
     this.author = author,
     this.title = title, 
