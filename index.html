@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Document</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+
+  <!-- link CSS files -->
+
+
+  <!-- handlebars -->
+  <script id="something-template" type="text/x-handlebars-template">
+    <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+    
+    </article>
+  </script>
+
+  
 </head>
+
+
 <body>
   <h1>Hello World</h1>
+
+  <section class="error-view"></section>
+  <!-- need class of container, and id of error message -->
+
+
   <section id="view">
     <ul>
       <li>Patrick Rothfuss, The Name of the Wind</li>
@@ -21,5 +41,15 @@
   <section id="about-view">
     <h4>About View</h4>
   </section>
+
+  <!-- link jQuery and handlebars -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <!-- link js files -->
+  <!-- bookView is required afet book -->
+  <script src="./scripts/mode">book.js</script>
+  <script src="./scripts/views/error-view.js">bookk.view</script>
+  <script src="./scripts/views/book-view.js"></script>
+
 </body>
 </html>
