@@ -1,5 +1,7 @@
 'use strict';
 
+var app = {};
+
 var __API_URL__ = 'https://api-v1-books';
 
 // create a constructor function wrapped in IIFE
@@ -23,12 +25,16 @@ var __API_URL__ = 'https://api-v1-books';
   //sorting rows by title, creating an array of book instances, assigning to Book.all array
   Book.loadAll = rows => {
     Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
-  }
+  };
 
   Book.fetchAll = callback => {
     $.get(`${__API_URL__}/api/v1/books`)
-    }
-  }
-  
+      .then(Book.loadAll)
+      .then(callback)
+      .catch(errorCallback);
+  };
+
+
+  module.Book = Book;
 })(app)
 
