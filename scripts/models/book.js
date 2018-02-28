@@ -1,8 +1,8 @@
 'use strict';
 
-var app = {};
+var app = app || {};
 
-var __API_URL__ = 'https://localhost:3000';
+const __API_URL__ = 'https://localhost:3000';
 
 // create a constructor function wrapped in IIFE
 (function (module) {
@@ -12,15 +12,11 @@ var __API_URL__ = 'https://localhost:3000';
     module.errorView.initErrorPage(err);
   }
 
-  Book.all = [];
-
   function Book (bookDataObj) {
-    this.book_id = book_id,
-    this.author = author,
-    this.title = title, 
-    this.isbn = isbn, 
-    this.image_url = image_url,
-    this.description = description
+
+    //Allie's Way
+    //Object is build in to js, gives an array of the keys. We then map over them to get an object literal
+    Object.keys(bookDataObj).forEach(key => this[key] = bookDataObj[key]);
   }
 
   //book instance method
@@ -30,6 +26,7 @@ var __API_URL__ = 'https://localhost:3000';
   };
 
   //sorting rows by title, creating an array of book instances, assigning to Book.all array
+  Book.all = [];
   Book.loadAll = rows => {
     Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
   };
@@ -40,7 +37,6 @@ var __API_URL__ = 'https://localhost:3000';
       .then(callback)
       .catch(errorCallback);
   };
-
 
   module.Book = Book;
 })(app)
