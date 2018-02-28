@@ -28,12 +28,30 @@
       </div>
     </li>
   </script>
+
+  <script id="display-one-book-template" type="text/x-handlebars-template">
+    <li class="book-items" data-bookid={{book_id}}>
+      <div class="book-container">
+        <img src={{image_url}}>
+        <div class="book-overlay">
+          <h3>{{title}}</h3>
+          <p>{{author}}</p>
+        </div>
+      </div>
+    </li>
+  </script>
+
 </head>
 <body>
   <header>
     <div class="header-content">
       <a href="/"><img src="http://www.bootcamps.in/wp-content/uploads/2015/06/code-fellows-shield.png" alt="logo"></a>
     </div>
+    <nav>
+      <i class="icon-menu">menu</i>
+      <link rel="stylesheet" href="styles/icons.css">
+      <ul></ul>
+    </nav>
   </header>
   <main>
   <h1>Books</h1>
@@ -51,9 +69,38 @@
       <h4>Book Count: 5</h4>
   </section>
 
+  <section id="form-view container">
+    <section class="new-book-list">
+      <ul id="new-book-list"></ul>
+    </section>
+  </section>
+
   <section id="about-view">
     <h4>About View</h4>
   </section>
+
+  <section>
+    <h1>Create a new book entry.</h1>
+    <form action="#" id="new-form">
+      <label>
+        <input type="text" id="book-author" placeholder="author" required>
+      </label>
+      <label>
+        <input type="text" id="book-title" placeholder="title" required>
+      </label>
+      <label>
+        <input type="text" id="book-isbn" placeholder="isbn" required>
+      </label>
+      <label>
+        <input type="text" id="book-image_url" placeholder="image" required>
+      </label>
+      <label>
+        <input type="text" id="book-description" placeholder="description" required>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
   </main>
   <footer>
     <aside class="social-links">
