@@ -32,9 +32,18 @@ const __API_URL__ = 'http://localhost:3000';
     Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
   };
 
+  //fetch all books
   Book.fetchAll = callback => {
     console.log('is fetchAll working');
     $.get(`${__API_URL__}/api/v1/books`)
+      .then(Book.loadAll)
+      .then(callback)
+      .catch(errorCallback);
+  };
+
+  //fetch one book
+  Book.fetchOne = callback => {
+    $.get(`${__API_URL__}/api/v1/books/:book_id`)
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
