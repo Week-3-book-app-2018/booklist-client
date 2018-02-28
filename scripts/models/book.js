@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-const __API_URL__ = 'https://localhost:3000';
+const __API_URL__ = 'http://localhost:3000';
 
 // create a constructor function wrapped in IIFE
 (function (module) {
@@ -28,6 +28,7 @@ const __API_URL__ = 'https://localhost:3000';
   //sorting rows by title, creating an array of book instances, assigning to Book.all array
   Book.all = [];
   Book.loadAll = rows => {
+
     Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
   };
 
