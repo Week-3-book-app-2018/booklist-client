@@ -23,12 +23,12 @@ const __API_URL__ = 'http://localhost:3000';
 
   //sorting rows by title, creating an array of book instances, assigning to Book.all array
   Book.all = [];
-  Book.loadAll = rows => 
+  Book.loadAll = rows =>
     Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
 
   //fetch all books
   Book.fetchAll = callback =>
-    $.get(`${__API_URL__}/api/v1/books/book_id`)
+    $.get(`${__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
