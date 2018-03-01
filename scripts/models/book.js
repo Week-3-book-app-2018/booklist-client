@@ -37,39 +37,31 @@ const __API_URL__ = 'http://localhost:3000';
     //     .then(Book.loadAll)
     //     .then(callback)
     //     .catch(errorCallback);
-
-    // //creating new property called 'book' and assigning a value of the 1st book
-    // Book.fetchOne = (ctx, callback) =>
-    //   $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
-    //     .then(results => ctx.book = results[0])
-    //     .then(callback)
-    //     .catch(errorCallback);
-
-    // Book.create = book =>
-    //   $.post(`${__API_URL__}/api/v1/books/`, book)
-    //     .then(() => page(`/`))
-    //     .catch(errorCallback);
-
-    // module.Book = Book;
   };
 
   //fetch all books
   Book.fetchAll = callback => {
     console.log('is fetchAll working');
-    $.get(`${__API_URL__}/api/v1/books`)
+    $.get(`${__API_URL__}/api/v1/books/book_id`)
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
   };
 
   //fetch one book
-  Book.fetchOne = callback => {
-    $.get(`${__API_URL__}/api/v1/books/:book_id`)
-      .then(Book.loadAll)
+  Book.fetchOne = (ctx, callback) => {
+    $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
+      .then(results => ctx.book = results[0])
       .then(callback)
       .catch(errorCallback);
   };
 
+  Book.create = book =>
+    $.post(`${__API_URL__}/api/v1/books/`, book)
+      .then(() => page(`/`))
+      .catch(errorCallback);
+
+
   module.Book = Book;
-})(app)
+})(app);
 
