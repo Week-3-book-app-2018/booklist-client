@@ -13,6 +13,22 @@ var app = app || {};
   };
 
 
+  //at some point
+  //Allie code
+  // bookView.initIndexPage
+
+
+  // bookView.initDetailPage = function(ctx) {
+  //   resetView();
+  //   $('.detail-view').show();
+  //   $('.book-detail').empty();
+  //   let template = Handlebars.compile($('#book-detail-template').text());
+  //   $('.book-detail').append(template(ctxBook));
+  // }
+
+
+
+
   module.bookView = bookView;
 })(app);
 
