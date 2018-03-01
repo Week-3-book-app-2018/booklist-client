@@ -6,21 +6,21 @@ var app = app || {};
 (function (module) {
   $('.icon-menu').on('click', function(event) {
     $('.nav-menu').slideToggle(350);
-  })
-  
+  });
+
   function resetView() {
     $('.container').hide();
     $('.nav-menu').slideUp(350);
   }
-  
+
   const bookView = {};
 
   bookView.initIndexPage = function(ctx) {
     resetView();
     $('.book-view').show();
     $('#book-list').empty();
-    module.Book.all.map(book => $('#book-list').append(book.toHtml()))
-  }
+    module.Book.all.map(book => $('#book-list').append(book.toHtml()));
+  };
 
   bookView.initDetailPage = function(ctxBook) {
     resetView();
@@ -28,7 +28,7 @@ var app = app || {};
     $('.book-detail').empty();
     let template = Handlebars.compile($('#book-detail-template').text());
     $('.book-detail').append(template(ctxBook));
-  }
+  };
 
   bookView.initCreateFormPage = function() {
     resetView();
@@ -48,8 +48,8 @@ var app = app || {};
   };
   module.bookView = bookView;
 
-})(app)
+})(app);
 
 $(function () {
   app.Book.fetchAll(app.bookView.initIndexPage);
-})
+});
