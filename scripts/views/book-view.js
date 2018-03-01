@@ -26,6 +26,13 @@ var app = app || {};
   //   $('.book-detail').append(template(ctxBook));
   // }
 
+  //code review
+  bookView.initFormView = function() {
+    $('.container').hide();
+    $('.formView').show();
+
+  };
+
 
 
 
