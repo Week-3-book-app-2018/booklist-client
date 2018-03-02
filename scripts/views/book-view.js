@@ -34,7 +34,7 @@ var app = app || {};
   bookView.initCreateFormPage = function() {
     resetView();
     $('.create-view').show();
-    $('#new-formD').on('submit', function(event) {
+    $('#new-form').on('submit', function(event) {
       event.preventDefault();
 
       let book = {
