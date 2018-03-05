@@ -49,5 +49,32 @@ const __API_URL__ = 'http://localhost:3000';
       .catch(errorCallback);
   };
 
+  Book.update = (ctx, book) =>
+    $.ajax({
+      url: `${__API_URL__}/api/v1/books`,
+      method: 'PUT',
+      data: {
+        title: book.title,
+        author: book.author,
+        isbn: book.isbn,
+        image_url: book.image_url,
+        description: book.description,
+        book_id: book.book_id
+      }
+    })
+      .then(() => page('/'))
+      .catch(errorCallback);
+
+
+  Book.destroy = function(id) {
+    $.ajax({
+      url:`${__API_URL__}/api/v1/books/${id}`,
+      method:'DELETE'
+    })
+      .then(() => page('/'))
+      .catch(errorCallback);
+  };
+
+
   module.Book = Book;
 })(app);
